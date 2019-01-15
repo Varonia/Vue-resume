@@ -2,6 +2,8 @@ var app = new Vue({
     el: '#app',
     data: {
         editingName: false,
+        loginVisible: false,
+        signUpVisible: false,
         resume: {
             name: '姓名',
             gender: '男',
@@ -16,7 +18,8 @@ var app = new Vue({
             this.resume[key] = value
         },
         onClickSave(){
-            let currentUser = AV.User.current()
+            this.loginVisible = true;
+            let currentUser = AV.User.current();
             if(!currentUser){
                 this.showLogin()
             }else{
@@ -32,11 +35,8 @@ var app = new Vue({
             //     console.error(error)
             // });
         },
-        showLogin(){
-
-        },
         saveResume(){
 
         }
     }
-})
+});
